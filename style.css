@@ -1,0 +1,29 @@
+
+.form-box{
+    width: 600px;
+    padding: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.2);
+    background: pink;
+    border-radius: 30px;
+}
+
+.header{
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+#btnSave{
+    background-color: black;
+    border: 1px solid black;
+    width: 100px;
+}
+
+#btnReset{
+    background-color: black;
+    border: 1px solid black;
+    width: 100px;
+}
