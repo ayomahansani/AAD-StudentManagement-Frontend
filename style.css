@@ -1,29 +1,17 @@
-
-.form-box{
-    width: 600px;
+#student-section{
+    width: 100vw;
+    height: 100vh;
     padding: 40px;
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
     box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.2);
     background: pink;
-    border-radius: 30px;
 }
 
-.header{
-    text-align: center;
-    margin-bottom: 50px;
+#txtId, #txtName, #txtEmail, #txtCity, #txtLevel{
+    width: 35vw;
 }
 
-#btnSave{
-    background-color: black;
-    border: 1px solid black;
+button{
     width: 100px;
-}
-
-#btnReset{
-    background-color: black;
-    border: 1px solid black;
-    width: 100px;
+    margin-right: 10px;
 }
