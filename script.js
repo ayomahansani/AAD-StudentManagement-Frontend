@@ -82,11 +82,11 @@ $(document).ready(function (){
             data: jsonStudent,
             headers: { "Content-Type": "application/json" },
             success : function (results) {
-                console.log(results)
+                console.log('Student saved successfully...')
                 alert('Student saved successfully...')
             },
             error : function (error) {
-                console.log(error)
+                console.log('Student not saved...')
                 alert('Student not saved...')
             }
         });
@@ -127,16 +127,16 @@ $(document).ready(function (){
         // ------------------- Ajax with JQuery -------------------
 
         $.ajax({
-            url: `http://localhost:8082/student`,
+            url: "http://localhost:8082/student?id=" + id,
             type: "PUT",
             data: jsonStudent,
             headers: { "Content-Type" : "application/json" },
             success : function (results) {
-                console.log(results)
+                console.log('Student updated successfully...')
                 alert('Student updated successfully...')
             },
             error : function (error) {
-                console.log(error)
+                console.log('Student not updated...')
                 alert('Student not updated...')
             }
         });
@@ -148,35 +148,11 @@ $(document).ready(function (){
     $('#student-delete').click(function (){
 
         let id = ($('#txtId').val());
-        let name = $('#txtName').val();
-        let email = $('#txtEmail').val();
-        let city = $('#txtCity').val();
-        let level = $('#txtLevel').val();
-
-        // For testing
-        console.log(id,name,email,city,level);
-
-        // Create an javascript object
-        const student = {
-            id: id,
-            name: name,
-            email: email,
-            city: city,
-            level: level
-        };
-
-        // For testing
-        console.log("JS Object : " + student);
-
-        // Create JSON
-        // convert js object to JSON object
-        const jsonStudent = JSON.stringify(student);
-        console.log("JSON Object : " + jsonStudent);
 
         // Ajax with JQuery
 
         $.ajax({
-            url: `http://localhost:8082/student`,
+            url: "http://localhost:8082/student?id=" + id,
             type: "DELETE",
             data: jsonStudent,
             headers: { "Content-Type" : "application/json" },
