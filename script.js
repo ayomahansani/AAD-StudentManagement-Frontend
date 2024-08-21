@@ -1,6 +1,6 @@
 $(document).ready(function (){
 
-    //getAllData();
+    loadAllStudents();
 
     // ------------------ save student ------------------
     $('#student-submit').click(function (){
@@ -82,11 +82,12 @@ $(document).ready(function (){
             data: jsonStudent,
             headers: { "Content-Type": "application/json" },
             success : function (results) {
-                console.log('Student saved successfully...')
+                console.log(results)
                 alert('Student saved successfully...')
+                loadAllStudents();
             },
             error : function (error) {
-                console.log('Student not saved...')
+                console.log(error)
                 alert('Student not saved...')
             }
         });
@@ -97,7 +98,7 @@ $(document).ready(function (){
     // ------------------ update student ------------------
     $('#student-update').click(function (){
 
-        let id = ($('#txtId').val());
+        let id = $('#txtId').val();
         let name = $('#txtName').val();
         let email = $('#txtEmail').val();
         let city = $('#txtCity').val();
@@ -132,11 +133,12 @@ $(document).ready(function (){
             data: jsonStudent,
             headers: { "Content-Type" : "application/json" },
             success : function (results) {
-                console.log('Student updated successfully...')
+                console.log(results)
                 alert('Student updated successfully...')
+                loadAllStudents();
             },
             error : function (error) {
-                console.log('Student not updated...')
+                console.log(error)
                 alert('Student not updated...')
             }
         });
@@ -154,11 +156,10 @@ $(document).ready(function (){
         $.ajax({
             url: "http://localhost:8082/student?id=" + id,
             type: "DELETE",
-            data: jsonStudent,
-            headers: { "Content-Type" : "application/json" },
             success : function (results) {
                 console.log(results)
                 alert('Student deleted successfully...')
+                loadAllStudents();
             },
             error : function (error) {
                 console.log(error)
@@ -170,17 +171,17 @@ $(document).ready(function (){
 
 
     // ------------------ gat all students ------------------
-    function getAllData() {
+    function loadAllStudents(){
 
         $.ajax({
             url : "http://localhost:8082/student",   // request eka yanna one thana
             type: "GET", // request eka mona vageda - type eka
             success : function (results) {
                 console.log(results)
-                alert('Get All Data Successfully...')
+                //alert('Get All Data Successfully...')
 
                 // Clear the existing table body
-                $('student-table-body').empty();
+                $('#student-table-body').empty();
 
                 // Iterate over the results and append rows to the table
                 results.forEach(function(student) {
@@ -193,7 +194,7 @@ $(document).ready(function (){
                         <td>${student.level}</td>
                     </tr>
                 `;
-                    $('student-table-body').append(row);
+                    $('#student-table-body').append(row);
                 });
             },
             error : function (error) {
@@ -201,7 +202,7 @@ $(document).ready(function (){
                 alert('Not Get All Data...')
             }
         })
-    }
 
+    }
 });
 
